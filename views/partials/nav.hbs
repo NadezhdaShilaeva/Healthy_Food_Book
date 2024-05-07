@@ -1,0 +1,37 @@
+<nav class="header-container__menu menu">
+    <ul class="header-container__menu-list menu-list">
+        <li class="header-container__menu-item menu-item">
+            <a class="menu-link" href="/recipes/favourites">
+                <img  class="menu-item__icon" src="/images/icons/bookmark.png" alt="Favourites">
+                <p class="menu-item__text">Мои любимые рецепты</p>
+            </a>
+        </li>
+        <li class="header-container__menu-item menu-item">
+            <a class="menu-link" href="/recipes/addition">
+                <img class="menu-item__icon" src="/images/icons/add-recipe.png" alt="Add-recipe">
+                <p class="menu-item__text">Поделиться рецептом</p>
+            </a>
+        </li>
+        {{#if (isModerator user.role)}}
+        <li class="header-container__menu-item menu-item">
+            <a class="menu-link" href="/recipes/created">
+                <img class="menu-item__icon" src="/images/icons/list-check.png" alt="Add-recipe">
+                <p class="menu-item__text">Проверить рецепт</p>
+            </a>
+        </li>
+        <li class="header-container__menu-item menu-item">
+            <a class="menu-link" href="/advices/addition">
+                <img class="menu-item__icon" src="/images/icons/create-advice.png" alt="Add-recipe">
+                <p class="menu-item__text">Создать мини&#150;совет</p>
+            </a>
+        </li>
+        {{/if}}
+        <li class="header-container__menu-item menu-item">
+            {{#if user}}
+            {{> profile_button}}
+            {{else}}
+            {{> enter_button}}
+            {{/if}}
+        </li>
+    </ul>
+</nav>

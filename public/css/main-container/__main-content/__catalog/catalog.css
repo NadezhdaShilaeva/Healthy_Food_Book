@@ -1,0 +1,30 @@
+.main-content {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    column-gap: 100px;
+}
+
+@media (min-width: 1540px) {
+    .serching__catalog {
+        display: none;
+    }
+    #search-box-without-burger {
+        margin-left: 0px;
+    }
+    .main-content__catalog {
+        text-align: start;
+    }
+    .catalog__header {
+        font-size: 24px;
+        padding-bottom: 20px;
+    }
+    .catalog__link {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1540px) {
+    .main-content__catalog {
+        display: none;
+    }
+}

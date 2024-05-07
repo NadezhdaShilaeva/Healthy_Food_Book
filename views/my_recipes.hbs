@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/main-container/__searching/searching.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__resipes/recipes.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__catalog/catalog.css">
+    <link rel="stylesheet" href="/css/main-container/preloader.css">
+    <link rel="stylesheet" href="/css/main-container/error-message.css">
+    <title>Мои любимые рецепты - HealthyFoodBook</title>
+</head>
+<body class="body">
+    <h1 class="main-container__title my-recipes">
+        <b>Мои любимые рецепты</b>
+    </h1>
+    <section class="main-container__serching serching">
+        <div class="searching__first-row">
+            <div class="serching__catalog catalog">
+                <a class="catalog__menu-burger">
+                    <img src="/images/icons/menu-burger.png" alt="Menu-burger">
+                </a>
+                <div class="catalog__description">
+                    <h3 class="catalog__header">
+                        <b>Категории блюд:</b>
+                    </h3>
+                </div>
+            </div>
+            <form action="" id="search-box-without-burger" class="searching__search-box search-box input-box">
+                {{> search_box}}
+            </form>
+        </div>
+    </section>
+    <div class="main-container__main-content main-content">
+        <section class="main-content__recipes recipes">
+            <div class="recipes__container" data-state="">
+                {{#if recipes}}
+                {{> recipes}}                
+                {{else}}   
+                <h2 class="title not-added-message">
+                    Вы еще не добавляли рецепты в избранное.. =(
+                </h2>
+                {{/if}}
+                <h2 class="title not-found-message">
+                    Рецепты с заданными параметрами не найдены.. =(
+                </h2>
+                <template id="recipe">
+                    <div class="recipes__recipe recipe">
+                        <a class="recipe__link" href="#">
+                            <img class="recipe__img" alt="Recipe_img">
+                        </a>
+                        <div class="recipe__description">
+                            <a class="recipe__name" href="#">
+                                <h2 class="main-container__header2"></h2>
+                            </a>
+                            <div class="recipe__category recipe-addition">
+                                <img class="recipe-addition__icon" src="/images/icons/category.png" alt="Category">
+                                <p class="recipe-addition__text"></p>
+                            </div>
+                            <div class="recipe__time recipe-addition">
+                                <img class="recipe-addition__icon" src="/images/icons/clock.png" alt="Time">
+                                <p class="recipe-addition__text"></p>
+                            </div>
+                            <div class="recipe__favourite recipe-addition">
+                                <img class="recipe-addition__icon" src="/images/icons/heart_full.png" alt="Likes">
+                                <p class="recipe-addition__text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <div class="preloader">
+                    <img class="preloader__image" src="/images/preloader/Spin.gif">
+                </div>
+                <div class="error-message">
+                    <img src="/images/message-img/error.png">
+                    <p class="message__text">Что-то пошло не так...</p>
+                </div>
+            </div>
+        </section>
+        <aside class="main-content__catalog">
+            <h3 class="catalog__header">
+                <b>Найти по категории:</b>
+            </h3>
+            <template id="catalog">
+                {{> catalog}}
+            </template>
+        </aside>
+    </div>
+    <script src="/js/catalog_template.js"></script>
+    <script type="module" src="/js/filter_favourite_recipes.js"></script>
+    <script type="module" src="/js/recipe_favourites.js"></script>
+    <script type="module" src="/js/recipe_category_fav.js"></script>
+</body>
+</html>

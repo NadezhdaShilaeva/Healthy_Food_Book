@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
+    integrity="sha512-pTaEn+6gF1IeWv3W1+7X7eM60TFu/agjgoHmYhAfLEU8Phuf6JKiiE8YmsNC0aCgQv4192s4Vai8YZ6VNM6vyQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/main-container/__searching/__parameter/selectize-input.css">
+    <link rel="stylesheet" href="/css/main-container/__searching/searching.css">
+    <link rel="stylesheet" href="/css/main-container/__searching/__parameter/parameter__select.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__resipes/recipes.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__advices/advices.css">
+    <link rel="stylesheet" href="/css/main-container/preloader.css">
+    <link rel="stylesheet" href="/css/main-container/error-message.css">
+    <link rel="stylesheet" href="/css/main-container/__table/table.css">
+    <title>Рецепты здоровых и полезных блюд - HealthyFoodBook</title>
+</head>
+<body class="body">
+    <section class="main-container__serching serching">
+        <div class="searching__first-row">
+            <div class="serching__catalog catalog">
+                <div class="catalog__menu-burger">
+                    <img src="/images/icons/menu-burger.png" alt="Menu-burger">
+                </div>
+                <div class="catalog__description">
+                    <h3 class="catalog__header">
+                        <b>Категории блюд:</b>
+                    </h3>
+                    {{> catalog}}
+                </div>
+            </div>
+            <form class="searching__search-box search-box input-box" id="search-box-without-burger">
+                {{> search_box}}
+            </form>
+        </div>
+        <form action="#" method="get" class="searching__search-by-parameters search-by-par">
+            <h2 class="search-by-par__title main-container__header2">
+                <b>Задать свои параметры блюда:</b>
+            </h2>
+            <ul class="search-by-par__parameters-list">
+                <li class="search-by-par__parameters-item parameter">
+                    <p class="parameter__title">
+                        Категория:
+                    </p>
+                    <div class="form-item__box parameter__box input-box" data-state="">
+                        <div class="parameter__input parameter__select" data-state="">
+                            <div class="select__title" data-default="Любая категория">Любая категория</div>
+                            <div class="parameter__options">
+                                <label class="parameter__option" for="any">Любая категория</label>
+                                <input class="parameter__choice" id="any" value="any" type="radio" name="category" checked>
+                                <label class="parameter__option" for="snacks">Закуски</label>
+                                <input class="parameter__choice" id="snacks" value="snacks" type="radio" name="category">
+                                <label class="parameter__option" for="salads">Салаты</label>
+                                <input class="parameter__choice" id="salads" value="salads" type="radio" name="category">
+                                <label class="parameter__option" for="soups">Супы</label>
+                                <input class="parameter__choice" id="soups" value="soups" type="radio" name="category">
+                                <label class="parameter__option" for="fish">Рыбные блюда</label>
+                                <input class="parameter__choice" id="fish" value="fish" type="radio" name="category">
+                                <label class="parameter__option" for="meat">Мясные блюда</label>
+                                <input class="parameter__choice" id="meat" value="meat" type="radio" name="category">
+                                <label class="parameter__option" for="garnish">Гарниры</label>
+                                <input class="parameter__choice" id="garnish" value="garnish" type="radio" name="category">
+                                <label class="parameter__option" for="desserts">Десерты</label>
+                                <input class="parameter__choice" id="desserts" value="desserts" type="radio" name="category">
+                                <label class="parameter__option" for="drinks">Напитки</label>
+                                <input class="parameter__choice" id="drinks" value="drinks" type="radio" name="category">
+                                <label class="parameter__option" for="kids">Детское меню</label>
+                                <input class="parameter__choice" id="kids" value="kids" type="radio" name="category">
+                            </div>
+                        </div>
+                        <img class="parameter__icon" src="/images/icons/angle-down.png">
+                    </div>
+                </li>
+                <li class="search-by-par__parameters-item">
+                    <p class="parameter__title">
+                        Ингредиенты:
+                    </p>
+                    <div class="parameter__box input-box">
+                        <select id="multi-select" name="ingredients" multiple="multiple">
+                            <option value="avocado">Авокадо</option> 
+                            <option value="orange">Апельсин</option>
+                            <option value="lingonberry">Брусника</option>
+                            <option value="basil">Базилик</option>
+                            <option value="bananas">Бананы</option> 
+                            <option value="lamb-fillet">Баранина (филе)</option>
+                            <option value="broccoli">Брокколи</option>
+                            <option value="broth">Бульон мясной</option>
+                            <option value="grapes">Виноград</option>
+                            <option value="water">Вода</option>
+                            <option value="goose">Гусь</option>
+                            <option value="carnation">Гвоздика</option>
+                            <option value="hercules">Геркулес</option>
+                            <option value="beef-soup">Говядина (суповой набор)</option> 
+                            <option value="beef-fillet">Говядина (филе)</option>
+                            <option value="dried-peas">Горох сушеный</option> 
+                            <option value="green-peas">Горох зеленый</option>
+                            <option value="buckwheat">Гречневая крупа</option>
+                            <option value="pear">Груша</option>
+                            <option value="melon">Дыня</option>
+                            <option value="gelatin">Желатин</option>
+                            <option value="chicken-stomach">Желудок куриный</option>
+                            <option value="pork-fat">Жир свиной</option>
+                            <option value="raisins">Изюм</option> 
+                            <option value="ginger">Имбирь</option>
+                            <option value="turkey-fillet">Индейка (филе)</option>
+                            <option value="natural-yogurt">Йогурт натуральный</option>
+                            <option value="cocoa">Какао</option> 
+                            <option value="sesame">Кунжут</option> 
+                            <option value="brussels-sprouts">Капуста брюссельская</option>
+                            <option value="sauerkraut">Капуста квашеная</option>
+                            <option value="dried-cranberry">Клюква сушеная</option>
+                            <option value="rabbit">Кролик</option> 
+                            <option value="zucchini">Кабачек</option>
+                            <option value="squid">Кальмары</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="search-by-par__parameters-item">
+                    <p class="parameter__title">
+                        Время приготовления:
+                    </p>
+                    <div class="form-item__box parameter__box input-box" data-state="">
+                        <div class="parameter__input parameter__select" data-state="">
+                            <div class="select__title" data-default="Любое время">Любое время</div>
+                            <div class="parameter__options">
+                                <label class="parameter__option" for="any">Любое время</label>
+                                <input class="parameter__choice" id="any" value="1500" type="radio" name="time" checked>
+                                <label class="parameter__option" for="30min">Не более 30 минут</label>
+                                <input class="parameter__choice" id="30min" value="30" type="radio" name="time">
+                                <label class="parameter__option" for="60min">Не более 60 минут</label>
+                                <input class="parameter__choice" id="60min" value="60" type="radio" name="time">
+                                <label class="parameter__option" for="90min">Не более 90 минут</label>
+                                <input class="parameter__choice" id="90min" value="90" type="radio" name="time">
+                                <label class="parameter__option" for="2h">Не более 2 часов</label>
+                                <input class="parameter__choice" id="2h" value="120" type="radio" name="time">
+                                <label class="parameter__option" for="3h">Не более 3 часов</label>
+                                <input class="parameter__choice" id="3h" value="180" type="radio" name="time">
+                                <label class="parameter__option" for="5h">Не более 5 часов</label>
+                                <input class="parameter__choice" id="5h" value="300" type="radio" name="time">
+                                <label class="parameter__option" for="12h">Не более 12 часов</label>
+                                <input class="parameter__choice" id="12h" value="720" type="radio" name="time">
+                            </div>
+                        </div>
+                        <img class="parameter__icon" src="/images/icons/angle-down.png">
+                    </div>
+                </li>
+            </ul>
+            <button class="search-by-par__button button" type="submit">
+                <p>Подобрать рецепты</p>
+            </button>
+        </form>
+    </section>
+    <div class="main-container__main-content main-content">
+        <section class="main-content__recipes recipes">
+            <h1 class="recipes__title">
+                <b>Подборка лучших рецептов</b>
+            </h1>
+            <div class="recipes__container" data-state="">
+                {{> recipes}}
+                <h2 class="title not-found-message">
+                    Рецепты с заданными параметрами не найдены.. =(
+                </h2>
+                <template id="recipe">
+                    <div class="recipes__recipe recipe">
+                        <a class="recipe__link" href="#">
+                            <img class="recipe__img" alt="Recipe_img">
+                        </a>
+                        <div class="recipe__description">
+                            <a class="recipe__name" href="#">
+                                <h2 class="main-container__header2"></h2>
+                            </a>
+                            <div class="recipe__category recipe-addition">
+                                <img class="recipe-addition__icon" src="/images/icons/category.png" alt="Category">
+                                <p class="recipe-addition__text"></p>
+                            </div>
+                            <div class="recipe__time recipe-addition">
+                                <img class="recipe-addition__icon" src="/images/icons/clock.png" alt="Time">
+                                <p class="recipe-addition__text"></p>
+                            </div>
+                            <div class="recipe__favourite recipe-addition">
+                                <img class="recipe-addition__icon" alt="Likes">
+                                <p class="recipe-addition__text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <div class="preloader">
+                    <img class="preloader__image" src="/images/preloader/Spin.gif">
+                </div>
+                <div class="error-message">
+                    <img src="/images/message-img/error.png">
+                    <p class="message__text">Что-то пошло не так...</p>
+                </div>
+                <button class="recipes__button button">
+                    <p>Показать больше</p>
+                </button>
+            </div>
+        </section>
+        <aside class="main-content__advices advices" data-state="">
+            <h2 class="advices__title main-container__header2">
+                <b>Полезные мини-советы</b>
+            </h2>
+            <div class="advices__list">
+                {{> advice}}
+                <template id="advice">
+                    <div class="advices__advice"> 
+                        <img class="advice__img" alt="Advice">                           
+                        <div class="advice__rectangle"> 
+                            <p class="advice__text"></p>                   
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="preloader">
+                <img class="preloader__image" src="/images/preloader/Spin.gif">
+            </div>
+            <div class="error-message">
+                <p>⚠ Что-то пошло не так</p>
+                <p>Попробуйте еще раз</p>
+            </div>
+            <button class="advices__button button">
+                <p>Показать больше</p>
+            </button>
+        </aside>
+    </div>
+    <div class="main-container__table table">
+        <h2 class="table__title main-container__header2">
+            <b>Таблица калорийности (на 100 г продукта)</b>
+        </h2>
+        <div class="table__container">
+            <div class="table__header">Продукт</div>
+            <div class="table__header">Белки</div>
+            <div class="table__header">Жиры</div>
+            <div class="table__header">Углеводы</div>
+            <div class="table__header">Ккал</div>
+            <div class="table__item">Авокадо</div>
+            <div class="table__item">2,0</div>
+            <div class="table__item">14,7</div>
+            <div class="table__item">1,8</div>
+            <div class="table__item">147,5</div>
+            <div class="table__item">Апельсин</div>
+            <div class="table__item">0,9</div>
+            <div class="table__item">0,2</div>
+            <div class="table__item">8,1</div>
+            <div class="table__item">37,8</div>
+            <div class="table__item">Брусника</div>
+            <div class="table__item">0,7</div>
+            <div class="table__item">0,5</div>
+            <div class="table__item">8</div>
+            <div class="table__item">39,2</div>
+            <div class="table__item">Базилик</div>
+            <div class="table__item">2,6</div>
+            <div class="table__item">0,7</div>
+            <div class="table__item">4,5</div>
+            <div class="table__item">34,7</div>                        
+            <div class="table__item">Бананы</div>
+            <div class="table__item">1,5</div>
+            <div class="table__item">0,11</div>
+            <div class="table__item">21,8</div>
+            <div class="table__item">94,1</div>
+            <div class="table__item">Баранина (филе)</div>
+            <div class="table__item">19,8</div>
+            <div class="table__item">9,6</div>
+            <div class="table__item">0</div>
+            <div class="table__item">166</div>
+            <div class="table__item">Брокколи</div>
+            <div class="table__item">3</div>
+            <div class="table__item">0,4</div>
+            <div class="table__item">5,2</div>
+            <div class="table__item">36,4</div>
+            <div class="table__item">Бульон мясной</div>
+            <div class="table__item">7,4</div>
+            <div class="table__item">2,6</div>
+            <div class="table__item">0,2</div>
+            <div class="table__item">54,1</div>
+            <div class="table__item">Виноград</div>
+            <div class="table__item">0,4</div>
+            <div class="table__item">0</div>
+            <div class="table__item">17,5</div>
+            <div class="table__item">71,6</div>
+            <div class="table__item">Гусь</div>
+            <div class="table__item">15,2</div>
+            <div class="table__item">39</div>
+            <div class="table__item">0</div>
+            <div class="table__item">411,8</div>
+            <div class="table__item">Гвоздика</div>
+            <div class="table__item">6</div>
+            <div class="table__item">20,1</div>
+            <div class="table__item">27</div>
+            <div class="table__item">312,9</div>
+            <div class="table__item">Геркулес</div>
+            <div class="table__item">11</div>
+            <div class="table__item">6,2</div>
+            <div class="table__item">50,1</div>
+            <div class="table__item">300,2</div>
+            <div class="table__item">Говядина (суповой набор)</div>
+            <div class="table__item">15</div>
+            <div class="table__item">5</div>
+            <div class="table__item">0</div>
+            <div class="table__item">105</div>
+            <div class="table__item">Говядина (филе)</div>
+            <div class="table__item">16</div>
+            <div class="table__item">12</div>
+            <div class="table__item">0</div>
+            <div class="table__item">172</div>
+            <div class="table__item">Горох сушеный</div>
+            <div class="table__item">20,5</div>
+            <div class="table__item">2</div>
+            <div class="table__item">53,3</div>
+            <div class="table__item">313,2</div>
+            <div class="table__item">Горох зеленый</div>
+            <div class="table__item">5</div>
+            <div class="table__item">0,2</div>
+            <div class="table__item">8,3</div>
+            <div class="table__item">55</div>
+            <div class="table__item">Гречневая крупа</div>
+            <div class="table__item">12,6</div>
+            <div class="table__item">3,3</div>
+            <div class="table__item">62,1</div>
+            <div class="table__item">335</div>
+        </div>
+    </div>
+    <script type="module" src="/js/parameter__select.js"></script>
+    <script type="module" src="/js/recipe_category.js"></script>
+    <script type="module" src="/js/recipe_favourites.js"></script>
+    <script type="module" src="/js/filter_approved_recipes.js"></script>
+    <script src="/js/advices_load.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
+    integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/multi-select.js"></script>
+</body>
+</html>

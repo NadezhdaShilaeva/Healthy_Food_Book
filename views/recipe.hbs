@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <link rel="stylesheet" href="/css/main-container/__main-content/__resipes/recipes.css">
+  <link rel="stylesheet" href="/css/main-container/__main-content/__recipe/__ingredients__wrapper.css">
+  <link rel="stylesheet" href="/css/main-container/__main-content/__recipe/recipe.css">
+  <link rel="stylesheet" href="/css/main-container/error-message.css">
+  <title>{{recipe.name}} - HealthyFoodBook</title>
+</head>
+<body class="body">
+  <h1 class="main-container__title">
+    <b>{{recipe.name}}</b>
+  </h1>
+  <div class="recipe__info">
+    <div class="recipe__photo">
+      <img class="recipe__img" src="/{{recipe.image.path}}" alt="recipe_img">
+    </div>
+    <div class="recipe__description">
+      <div class="recipe__category recipe-addition">
+        <img class="recipe-addition__icon" src="/images/icons/category.png" alt="category">
+        <p class="recipe-addition__text">Категория: {{getCategory recipe.category}}</p>
+      </div>
+      <div class="recipe__time recipe-addition">
+        <img class="recipe-addition__icon" src="/images/icons/clock.png" alt="time">
+        <p class="recipe-addition__text">Время приготовления: 
+          {{#if recipe.hours}}{{recipe.hours}} ч {{/if}}
+          {{#if recipe.minutes}}{{recipe.minutes}} мин{{/if}}
+        </p>
+      </div>
+      <div class="recipe__portions recipe-addition">
+        <img class="recipe-addition__icon" src="/images/icons/portions.png" alt="portions">
+        <p class="recipe-addition__text">Количество порций: {{recipe.portions}} {{getPortionsForm recipe.portions}}</p>
+      </div>
+      <div class="recipe__category recipe-addition">
+        <img class="recipe-addition__icon" src="/images/icons/user.png" alt="author">
+        <p class="recipe-addition__text">Автор: {{recipe.author.username}}</p>
+      </div>
+      <div class="recipe__favourite recipe-addition">
+        {{#if recipe.isLiked}}
+        <img class="recipe-addition__icon" src="/images/icons/heart_full.png" alt="likes">
+        <p class="recipe-addition__text">Удалить из любимых</p>
+        {{else}}
+        <img class="recipe-addition__icon" src="/images/icons/heart.png" alt="likes">
+        <p class="recipe-addition__text">Добавить в любимые</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="recipe__cooking">
+    <div class="recipe__ingredients">
+      {{>ingredients_wrapper}}
+    </div>
+    <div class="recipe__cooking-steps">
+      {{#each recipe.cookingSteps}}
+      <div class="recipe__cooking-step">
+        <h3 class="cooking-step__number">
+          Шаг {{number}}:
+        </h3>
+        <div class="cooking-step___description">
+          {{description}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <script type="module" src="/js/recipe_favourites.js"></script>
+</body>
+</html>

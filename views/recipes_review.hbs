@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/main-container/__main-content/__resipes/recipes.css">
+    <link rel="stylesheet" href="/css/main-container/preloader.css">
+    <link rel="stylesheet" href="/css/main-container/error-message.css">
+    <title>Мои любимые рецепты - HealthyFoodBook</title>
+</head>
+<body class="body">
+    <h1 class="main-container__title my-recipes">
+        <b>Рецепты, ожидающие проверки</b>
+    </h1>
+    <section class="main-content__recipes recipes">
+        <div class="recipes__container" data-state="">
+            {{> recipes}}
+        </div>
+    </section>
+    <script type="module" src="/js/recipe_favourites.js"></script>
+</body>
+</html>

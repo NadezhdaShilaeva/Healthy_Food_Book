@@ -1,0 +1,14 @@
+.preloader {
+    display: none;
+    align-self: center;
+}
+
+.preloader__image {
+    width: 70px;
+}
+
+@media (max-width: 770px) {
+    .preloader__image {
+        width: 60px;
+    }
+}

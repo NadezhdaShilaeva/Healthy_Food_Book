@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+
+.header-navigation {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    z-index: 3;
+    background: linear-gradient(170deg, rgb(63, 97, 42) 20%, rgba(138, 166, 121, 0.9) 99%);
+}
+
+.center-container {
+    width: 1500px;
+    margin: 0 auto;
+}
+
+.header-container {
+    padding: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 70px;
+}
+
+@media (max-width: 1540px) {
+    .center-container {
+        width: 1000px;
+    }
+    .header-navigation .center-container {
+        width: 100%;
+        padding: 0px;
+    }
+    .header-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .center-container {
+        width: 100%;
+        padding: 0px 10px;
+    }
+}
+
+@media (max-width: 440px) {
+    .header-navigation {
+        overflow:auto;
+    }
+
+    .header-navigation::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+.header-container__logotype {
+    display: flex;
+    align-items: center;
+}
+
+.logotype__img {
+    width: 200px;
+    border-radius: 5px;
+}
+
+.header-container__menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-container__menu-list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.menu-item {
+    list-style: none;
+    padding: 15px 15px;
+}
+
+.menu-link {
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.menu-item__icon {
+    width: 36px;
+}
+
+.menu-item__text {
+    position: relative;
+    font-family: 'Comfortaa', cursive;
+    color: #f6f6f6;
+    font-size: 18px;
+    font-weight: 400;
+    display: inline;
+}
+
+@media (max-width: 1210px) {
+    .menu-item__text {
+        display: none;
+    }
+}
+
+@media (max-width: 770px) {
+    .logotype__img {
+        width: 150px;
+    }
+    .menu-item__icon {
+        width: 30px;
+    }
+    .menu-list {
+        column-gap: 5px;
+    }
+}
+
+.menu-item:hover {
+    content: "";
+    background-color: rgba(246, 246, 246, 0.1);
+    border-radius: 5px;
+    transition-duration: 0.25s;
+}
+
+.menu-list .active p::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 10px;
+    bottom: -7px;
+    height: 2px;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+}

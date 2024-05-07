@@ -1,0 +1,67 @@
+.main-container__table {
+    margin-top: 50px;
+}
+
+.table__title {
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.table__container {
+    display: grid;
+    width: 100%;
+    border-collapse: collapse;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    border: 2px solid #3F612A;
+    border-radius: 5px;
+}
+
+.table__header {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 15px 10px;
+    background-color: rgba(138, 166, 121, 0.5); 
+    border-right: 2px solid #3F612A;
+}
+
+.table__header:nth-child(1) {
+    text-align: start;
+}
+
+.table__header:nth-child(5n) {
+    border-right: none;
+}
+
+.table__item {
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    border-top: 2px solid #3F612A;    
+    border-right: 2px solid #3F612A;
+}
+
+.table__item:nth-child(10n + 1), .table__item:nth-child(10n + 2), 
+.table__item:nth-child(10n + 3), .table__item:nth-child(10n + 4), 
+.table__item:nth-child(10n + 5) {
+    background-color: rgba(138, 166, 121, 0.2);
+}
+
+.table__item:nth-child(5n) {
+    border-right: none;
+}
+
+.table__item:nth-child(5n + 1) {
+    text-align: start;
+}
+
+@media (max-width: 770px) {
+    .table__header {
+        font-size: 18px;
+        padding: 15px 5px;
+    }
+    .table__item {
+        font-size: 16px;
+        padding: 10px 5px;
+    }
+}

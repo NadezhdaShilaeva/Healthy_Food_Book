@@ -1,0 +1,142 @@
+<div class="addition-form__row">
+    <div class="addition-form__form-item form-item">
+        <div class="form-item__box parameter__box__photo input-box">
+            <p class="form-item__text">Фото готового блюда</p>
+            <p class="form-item__text form-item__text__photo">Загрузить фото</p>
+            <label class="parameter__label__photo" for="photo" {{#if recipe.image}}style="background-image: url(/{{reverseSlashes recipe.image.path}});"{{/if}}></label>
+            <input class="parameter__input__photo" type="file" id="photo" name="image" accept="image/png, image/jpeg, image/jpg, image/webp">
+        </div>
+    </div>
+    <div class="addition-form__column">
+        <div class="addition-form__form-item form-item form-item__column__left">
+            <p class="form-item__text">Название рецепта:</p>
+            <div class="form-item__box parameter__box input-box">
+                <input class="parameter__input" type="text" name="name" placeholder="Введите название" {{#if recipe.name}}value="{{recipe.name}}"{{/if}} autocomplete="off" required>
+            </div>
+        </div>
+        <div class="parameter__row">
+            <div class="addition-form__form-item form-item form-item__column__center">
+                <p class="form-item__text">Время приготовления:</p>
+                <div class="form-item__short-space">
+                    <div class="form-item__box form-item__box__short parameter__box input-box">
+                        <input class="parameter__input parameter__input__short" type="number" name="hours" min="0" max="24" step="1" {{#if recipe.hours}}value="{{recipe.hours}}"{{else}}value="0"{{/if}} required>
+                    </div>
+                    <p class="form-item__small-text">ч</p>
+                    <div class="form-item__box form-item__box__short parameter__box input-box">
+                        <input class="parameter__input parameter__input__short" type="number" name="minutes" min="0" max="59" step="1" {{#if recipe.minutes}}value="{{recipe.minutes}}"{{else}}value="0"{{/if}} required>
+                    </div>
+                    <p class="form-item__small-text">мин</p>
+                </div>
+            </div>
+            <div class="addition-form__form-item form-item form-item__column__center">
+                <p class="form-item__text text__long">Количество порций:</p>
+                <p class="form-item__text text__short">Кол-во порций:</p>
+                <div class="form-item__box form-item__box__short parameter__box input-box">
+                    <input class="parameter__input parameter__input__short" type="number" name="portions" min="1" max="24" step="1" {{#if recipe.portions}}value="{{recipe.portions}}"{{else}}value="1"{{/if}} required>
+                </div>
+            </div>
+        </div>
+        <div class="addition-form__form-item form-item">
+            <p class="form-item__text text__long">Категория блюда:</p>
+            <p class="form-item__text text__short">Категория:</p>
+            <div class="form-item__box parameter__box input-box" data-state="">
+                <div class="parameter__input parameter__select" data-state="">
+                    <div class="select__title" data-default="Выберите категорию">Выберите категорию</div>
+                    <div class="parameter__options">
+                        <label class="parameter__option" for="snacks">Закуски</label>
+                        <input class="parameter__choice" id="snacks" value="snacks" type="radio" name="category" {{#if (isSnacks recipe.category)}}checked{{/if}} required>
+                        <label class="parameter__option" for="salads">Салаты</label>
+                        <input class="parameter__choice" id="salads" value="salads" type="radio" name="category" {{#if (isSalads recipe.category)}}checked{{/if}}>
+                        <label class="parameter__option" for="soups">Супы</label>
+                        <input class="parameter__choice" id="soups" value="soups" type="radio" name="category" {{#if (isSoups recipe.category)}}checked{{/if}}>
+                        <label class="parameter__option" for="fish">Рыбные блюда</label>
+                        <input class="parameter__choice" id="fish" value="fish" type="radio" name="category" {{#if (isFish recipe.category)}}checked{{/if}}>
+                        <label class="parameter__option" for="meat">Мясные блюда</label>
+                        <input class="parameter__choice" id="meat" value="meat" type="radio" name="category" {{#if (isMeat recipe.category)}}checked{{/if}}>
+                        <label class="parameter__option" for="garnish">Гарниры</label>
+                        <input class="parameter__choice" id="garnish" value="garnish" type="radio" name="category" {{#if (isGarnish recipe.category)}}checked{{/if}}>
+                        <label class="parameter__option" for="desserts">Десерты</label>
+                        <input class="parameter__choice" id="desserts" value="desserts" type="radio" name="category" {{#if (isDesserts recipe.category)}}checked{{/if}}>
+                        <label class="parameter__option" for="drinks">Напитки</label>
+                        <input class="parameter__choice" id="drinks" value="drinks" type="radio" name="category" {{#if (isDrinks recipe.category)}}checked{{/if}}>
+                        <label class="parameter__option" for="kids">Детское меню</label>
+                        <input class="parameter__choice" id="kids" value="kids" type="radio" name="category" {{#if (isKids recipe.category)}}checked{{/if}}>
+                    </div>
+                </div>
+                <img class="parameter__icon" src="/images/icons/angle-down-dark.png">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="addition-form__column">
+    <div class="addition-form__form-item form-item form-item__column__left">
+        <p class="form-item__text">Необходимые ингредиенты:</p>
+        <div class="form-item__column">
+            <div class="form-item__box parameter__box input-box">
+                <div class="input__long vert-line-after">
+                    <input class="parameter__input" type="text" name="ingredientname" placeholder="Название ингрдиента" autocomplete="off">
+                </div>
+                <div class="input__short vert-line-after">
+                    <input class="parameter__input" type="number" name="ingredientquantity" min="0.1" max="999" placeholder="Кол-во">
+                </div>
+                <div class="parameter__input parameter__select parameter__input__short input__short" data-state="">
+                    <div class="select__title" data-default="Ед.изм.">Ед.изм.</div>
+                    <div class="parameter__options">
+                        <label class="parameter__option" for="g">г</label>
+                        <input class="parameter__choice" id="g" value="g" type="radio" name="ingredientmes">
+                        <label class="parameter__option" for="kg">кг</label>
+                        <input class="parameter__choice" id="kg" value="kg" type="radio" name="ingredientmes">
+                        <label class="parameter__option" for="l">л</label>
+                        <input class="parameter__choice" id="l" value="l" type="radio" name="ingredientmes">
+                        <label class="parameter__option" for="ml">мл</label>
+                        <input class="parameter__choice" id="ml" value="ml" type="radio" name="ingredientmes">
+                        <label class="parameter__option" for="teas">ч. л.</label>
+                        <input class="parameter__choice" id="teas" value="teas" type="radio" name="ingredientmes">
+                        <label class="parameter__option" for="tables">ст. л.</label>
+                        <input class="parameter__choice" id="tables" value="tables" type="radio" name="ingredientmes">
+                        <label class="parameter__option" for="piece">шт</label>
+                        <input class="parameter__choice" id="piece" value="piece" type="radio" name="ingredientmes">
+                        <label class="parameter__option" for="glass">стак.</label>
+                        <input class="parameter__choice" id="glass" value="glass" type="radio" name="ingredientmes">
+                    </div>
+                </div>
+                <img class="parameter__icon" src="/images/icons/angle-down-dark.png">
+            </div>
+        </div>
+    </div>
+    <button class="ingredients-form__button button" type="button">
+        <p>Добавить</p>
+    </button>
+    {{#if recipe.ingredients}}
+    {{> ingredients_wrapper}}
+    {{/if}}
+    <template id="ingredients">
+        <div class="addition-form__ingredients-preview ingredients__wrapper">
+            <div class="ingredients__title">
+                <p>Ингредиенты:</p>
+            </div>
+            <ul class="ingredients__list"></ul>
+        </div>
+    </template>
+</div>
+<div class="addition-form__form-item form-item instruction-form">
+    <p class="instruction-form__title">Пошаговая инструкция приготовления</p>
+    <template id="description">
+        <div class="form-item__description">
+            <p class="description__title"></p>
+            <div class="parameter__box parameter__box__textarea input-box">
+                <textarea class="parameter__input parameter__input__textarea" placeholder="Описание шага"></textarea>
+            </div>
+        </div>
+    </template>
+    {{#if recipe.cookingSteps}}
+    {{#each recipe.cookingSteps}}
+    <div class="form-item__description">
+        <p class="description__title">Шаг {{number}}:</p>
+        <div class="parameter__box parameter__box__textarea input-box">
+            <textarea class="parameter__input parameter__input__textarea" placeholder="Описание шага" name="step{{number}}">{{description}}</textarea>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+</div>

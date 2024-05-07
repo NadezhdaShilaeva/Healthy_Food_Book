@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/main-container/__searching/__parameter/parameter__select.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__addition-form/addition-form.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__recipe/__ingredients__wrapper.css">
+    <link rel="stylesheet" href="/css/main-container/error-message.css">
+    <link rel="stylesheet" href="/css/main-container/preloader.css">
+    <link rel="stylesheet" href="/css/main-container/form__container.css">
+    <title>Проверить рецепт - HealthyFoodBook</title>
+</head>
+<body class="body">
+    <h1 class="main-container__title share-recipe">
+        <b>Редактирование рецепта</b>
+    </h1>
+    <form enctype="multipart/form-data" class="main-container__addition-form addition-form form__container" id="form" data-state="">
+        {{> recipe_form}}
+        <div class="addition-form__row__center">
+            <button class="addition-form__button button approve" type="submit">
+                <p>Утвердить рецепт</p>
+            </button>
+            <button class="addition-form__button button remove" type="button">
+                <p>Удалить рецепт</p>
+            </button>
+            <div class="preloader">
+                <img class="preloader__image" src="/images/preloader/Spin.gif">
+            </div>
+        </div>
+        <div class="success-message">
+            <img src="/images/message-img/success.png">
+            <p>Рецепт успешно утвержден!</p>
+        </div>
+        <div class="removed-message">
+            <img src="/images/message-img/success.png">
+            <p>Рецепт успешно удален!</p>
+        </div>
+        <div class="error-message">
+            <img src="/images/message-img/error.png">
+            <p class="message__text"></p>
+        </div>
+    </form>
+    <script src="/js/photo-form.js"></script>
+    <script type="module" src="/js/parameter__select.js"></script>
+    <script type="module" src="/js/instruction-form.js"></script>
+    <script type="module" src="/js/ingredients-form.js"></script>
+    <script type="module" src="/js/moderate_recipe.js"></script>
+</body>
+</html>

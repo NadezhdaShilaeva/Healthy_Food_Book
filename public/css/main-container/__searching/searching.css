@@ -1,0 +1,220 @@
+.searching {
+    position: relative;
+    }
+
+.searching__first-row {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    align-items: center;
+}
+
+.serching__catalog {
+    display: inline-block;
+    position: relative;
+}
+
+.catalog__menu-burger {
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 15px;
+}
+
+.catalog__menu-burger:hover {
+    content: "";
+    background-color: rgba(138, 166, 121, 0.2);
+    border-radius: 5px;
+    transition-duration: 0.25s;
+}
+
+.catalog__menu-burger img {
+    box-sizing: content-box;
+    width: 36px;
+}
+
+.catalog__description {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background-color:#f6f6f6;
+    border-top: none;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 1px rgba(138, 166, 121, 0.5);
+    z-index: 2;
+}
+
+.serching__catalog:hover .catalog__description {
+    content: "";
+    display: block;
+    transition-duration: 0.25s;
+}
+
+.catalog__header {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.catalog__category-list {
+    list-style: none;
+}
+
+.catalog__category-item {
+    list-style: none;
+    padding: 10px 10px 10px 30px;
+}
+
+.catalog__category-item .active {
+    background-color: rgba(138, 166, 121, 0.2);
+    border-radius: 10px;
+    padding: 10px 10px 10px 15px;
+}
+
+/*.catalog__category-item .active::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #3F612A;
+    display: inline-block;
+    vertical-align: center;
+    margin-right: 10px;
+}*/
+
+.catalog__link {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: #3F612A;
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.catalog__link:hover {
+    text-decoration: underline;
+}
+
+.searching__search-box {
+    flex-grow: 1;
+    border: 2px solid #3F612A;
+    border-radius: 10px;
+    margin: 10px 0px 10px 10px;
+    background-color: rgba(138, 166, 121, 0.2);
+    display: flex;
+    align-items: center;
+}
+
+.input-box:focus-within {
+    content: "";
+    box-shadow: 0 0 20px 1px rgba(138, 166, 121, 0.3);    
+}
+
+.search-box__input {
+    flex-grow: 1;
+    margin: 5px 15px;
+    outline: none;
+    border: none;
+    min-width: 300px;
+    font-family: inherit;
+    color: #3F612A;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+    background-color: transparent;
+}
+
+.search-box__button {
+    display: inline-block;
+    padding: 10px;
+    border: none;
+    border-left: 2px solid #3F612A;
+    background: none;
+}
+
+.search-box__button:hover {
+    cursor: pointer;
+}
+
+.search-box__button-img {
+    width: 36px;
+    line-height: 30px;
+}
+
+.searching__search-by-parameters {
+    margin: 20px 0px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(138, 166, 121, 0.2);
+    border-radius: 5px;
+}
+
+.search-by-par__parameters-list {
+    list-style: none;
+    padding: 30px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 50px;
+    align-self: center;
+}
+
+@media (max-width: 935px) {
+    .searching__first-row {
+        column-gap: 5px;
+    }
+    .search-by-par__parameters-list {
+        column-gap: 10px;
+    }
+}
+
+.search-by-par__parameters-item {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 33.333%;
+}
+
+@media (max-width: 850px) {
+    .search-by-par__parameters-list {
+        flex-direction: column;
+    }
+    .search-by-par__parameters-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 770px) {
+    .catalog__menu-burger img {
+        width: 30px;
+    }
+    .search-box__button-img {
+        width: 30px;
+    }
+}
+
+.parameter__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.search-by-par__button {
+    align-self: flex-end;
+}
+
+@media (max-width: 770px) {
+    .search-box__input {
+        font-size: 16px;
+        line-height: 22px;
+        min-width: 250px;
+        margin: 0px 10px;
+    }
+    .parameter__title {
+        font-size: 18px;
+    }
+}

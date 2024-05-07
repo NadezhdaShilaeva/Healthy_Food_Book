@@ -1,0 +1,26 @@
+.form__container[data-state='load'] {
+    .button {
+        display: none;
+    }
+    .preloader {
+        display: block;
+    }
+}
+
+.form__container[data-state='error'] {
+    .error-message {
+        display: block;
+    }
+}
+
+.form__container[data-state='success'] {
+    .success-message {
+        display: block;
+    }
+}
+
+.form__container[data-state='removed'] {
+    .removed-message {
+        display: block;
+    }
+}

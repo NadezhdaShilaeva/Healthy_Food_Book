@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/main-container/__searching/__parameter/parameter__select.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__addition-form/addition-form.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__recipe/__ingredients__wrapper.css">
+    <link rel="stylesheet" href="/css/main-container/error-message.css">
+    <link rel="stylesheet" href="/css/main-container/preloader.css">
+    <link rel="stylesheet" href="/css/main-container/form__container.css">
+    <title>Поделиться рецептом - HealthyFoodBook</title>
+</head>
+<body class="body">
+    <h1 class="main-container__title share-recipe">
+        <b>Поделиться своим рецептом</b>
+    </h1>
+    <form action="#" method="post" enctype="multipart/form-data" class="main-container__addition-form addition-form form__container" id="form" data-state="">
+        {{> recipe_form}}
+        <div class="addition-form__row__center">
+            <button class="addition-form__button button__pale save" type="button">
+                <p>Сохранить</p>
+            </button>
+            <button class="addition-form__button button__pale reset" type="reset">
+                <p>Очистить</p>
+            </button>
+        </div>
+        <button class="addition-form__button button" type="submit">
+            <p>Отправить рецепт</p>
+        </button>
+        <div class="preloader">
+            <img class="preloader__image" src="/images/preloader/Spin.gif">
+        </div>
+        <div class="success-message">
+            <img src="/images/message-img/success.png">
+            <p>Рецепт отправлен на модерацию! Вы можете следить за его статусом в своем профиле.</p>
+        </div>
+        <div class="error-message">
+            <img src="/images/message-img/error.png">
+            <p class="message__text"></p>
+        </div>
+    </form>
+    <script src="/js/photo-form.js"></script>
+    <script type="module" src="/js/parameter__select.js"></script>
+    <script type="module" src="/js/instruction-form.js"></script>
+    <script type="module" src="/js/ingredients-form.js"></script>
+    <script type="module" src="/js/save_data.js"></script>
+    <script type="module" src="/js/create_recipe.js"></script>
+</body>
+</html>

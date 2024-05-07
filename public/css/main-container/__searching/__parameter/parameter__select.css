@@ -1,0 +1,67 @@
+.parameter__box {
+    position: relative;
+}
+
+.parameter__icon {
+    position: absolute;
+    height: 36px;
+    width: 36px;
+    right: 10px;
+    pointer-events: none;
+    transition: transform 0.3s ease-out;
+}
+
+.input-box[data-state='active'] {
+    box-shadow: 0 0 20px 1px rgba(138, 166, 121, 0.3);
+    .parameter__options {
+        box-shadow: 0 0 20px 1px rgba(138, 166, 121, 0.3);
+    }
+    .parameter__icon {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease-out;
+    }
+}
+
+.parameter__select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &[data-state='active'] {
+        .parameter__options {
+            display: flex;
+        }
+    }
+}
+
+.select__title {
+    color: #808080;
+    pointer-events: none;
+}
+
+.parameter__choice {
+    display: none;
+}
+
+.parameter__options {
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    right: 0px;
+    top: calc(100% + 2px);
+    display: none;
+    flex-direction: column;
+    background-color: #f6f6f6;
+    border: solid 2px #3F612A;
+    border-radius: 0px 0px 10px 10px;
+    border-top: none;
+    transition: all 0.3s ease-out;
+}
+
+.parameter__option {
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(138, 166, 121, 0.2);
+    }
+}

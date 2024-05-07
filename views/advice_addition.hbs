@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/main-container/__searching/__parameter/parameter__select.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__addition-form/addition-form.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__addition-form/advice-form.css">
+    <link rel="stylesheet" href="/css/main-container/error-message.css">
+    <link rel="stylesheet" href="/css/main-container/preloader.css">
+    <link rel="stylesheet" href="/css/main-container/form__container.css">
+    <title>Поделиться мини-советом - HealthyFoodBook</title>
+</head>
+<body class="body">
+    <h1 class="main-container__title share-recipe">
+        <b>Поделиться полезным мини-советом</b>
+    </h1>
+    <form action="#" method="post" enctype="multipart/form-data" class="main-container__addition-form addition-form form__container" id="form" data-state="">
+        <div class="addition-form__row">
+            <div class="addition-form__form-item form-item">
+                <div class="form-item__box parameter__box__photo photo__advice input-box">
+                    <p class="form-item__text">Иллюстрация мини-совета</p>
+                    <p class="form-item__text form-item__text__photo">Загрузить изображение</p>
+                    <label class="parameter__label__photo" for="photo"></label>
+                    <input class="parameter__input__photo" type="file" id="photo" name="image" accept="image/png, image/jpeg, image/jpg, image/webp" required>
+                </div>
+            </div>
+            <div class="addition-form__column">
+                <div class="form-item__description">
+                    <p class="form-item__text advice-description__title">Описание мини-совета:</p>
+                    <div class="parameter__box parameter__box__textarea input-box">
+                        <textarea class="parameter__input parameter__input__textarea" placeholder="Описание шага" name="description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="addition-form__button button" type="submit">
+            <p>Создать мини-совет</p>
+        </button>
+        <div class="preloader">
+            <img class="preloader__image" src="/images/preloader/Spin.gif">
+        </div>
+        <div class="success-message">
+            <img src="/images/message-img/success.png">
+            <p>Полезный мини-совет создан!</p>
+        </div>
+        <div class="error-message">
+            <img src="/images/message-img/error.png">
+            <p class="message__text"></p>
+        </div>
+    </form>
+    <script src="/js/photo-form.js"></script>
+    <script src="/js/create_advice.js"></script>
+</body>
+</html>

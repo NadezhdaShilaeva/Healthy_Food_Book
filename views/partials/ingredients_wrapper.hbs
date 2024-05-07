@@ -1,0 +1,13 @@
+<div class="addition-form__ingredients-preview ingredients__wrapper">
+  <div class="ingredients__title">
+    <p>Ингредиенты:</p>
+  </div>
+  <ul class="ingredients__list">
+    {{#each recipe.ingredients}}
+    <li class="ingredient__row">
+      <p class="ingredient__name">{{name}}</p>
+      <p class="ingredient__quantity">{{amount}} {{getMeasurement measurement}}</p>
+    </li>
+    {{/each}}
+  </ul>
+</div>

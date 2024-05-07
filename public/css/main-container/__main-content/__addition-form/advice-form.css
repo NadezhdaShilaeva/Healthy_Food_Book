@@ -1,0 +1,13 @@
+.photo__advice {
+    width: 460px;
+    height: 510px;
+}
+
+.parameter__label__photo {
+    background-position: bottom;
+}
+
+.advice-description__title {
+    line-height: 50px;
+    margin-top: 10px;
+}

@@ -1,0 +1,39 @@
+.error-message, .success-message, .removed-message {
+    display: none;
+    align-self: center;
+    text-align: center;
+    margin: 10px 0px;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+.not-added-message {
+    margin-left: 20px;
+}
+
+.error-message img, .success-message img, .removed-message img {    
+    width: 30px;
+}
+
+@media (max-width: 770px) {
+    .error-message, .success-message, .removed-message {
+        font-size: 16px;
+    }
+
+    .error-message img, .success-message img, .removed-message img {    
+        width: 20px;
+    }
+}
+
+.not-found-message {
+    display: none;
+}
+
+.recipes__title {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: 700; 
+}

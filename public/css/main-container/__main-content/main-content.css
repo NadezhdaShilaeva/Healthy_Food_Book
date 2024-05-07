@@ -1,0 +1,22 @@
+.main-offset_empty {
+    height: 510px;
+}
+
+.main-content {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 30px;
+}
+
+@media (max-width: 1540px) {
+    .main-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 770px) {
+    .main-offset_empty {
+        height: 350px;
+    }
+}

@@ -1,0 +1,101 @@
+.login-form {
+    position: relative;
+    margin: 100px auto;
+    padding: 100px;
+    max-width: 800px;
+    background-color: rgba(138, 166, 121, 0.2);
+    border-radius: 10px;
+    display: flex;
+    &form {
+        display: flex;
+    }
+}
+
+@media (max-width: 1210px) {
+    .login-form {
+        margin: 100px 120px;
+        padding: 70px;
+    }
+}
+
+.login-form__column, .login-form form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+.login-form .login-form__column {
+    transition: all 0.3;
+}
+
+.login-form.active .login-form__column {
+    display: none;
+}
+
+.register-form {
+    display: none;
+}
+
+.login-form.active .register-form {
+    display: flex;
+}
+
+.login-form__title {
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: 700;
+    align-self: center;
+}
+
+.form-item__text {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.form-item__small-text {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.form-item__box .parameter__input {
+    font: 700;
+}
+
+.login-form__registration {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+}
+
+.login-form__registration:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-form__button {
+    align-self: center;
+    min-width: 200px;
+}
+
+@media (max-width: 770px) {
+    .login-form {
+        margin: 70px 40px;
+        padding: 40px;
+    }
+    .login-form__column {
+        row-gap: 20px;
+    }
+    .form-item__box {
+        height: auto;
+    }
+    .login-form__title {
+        font-size: 24px;
+    }
+    .form-item__text {
+        font-size: 18px;
+    }
+    .form-item__small-text {
+        font-size: 16px;
+    }
+}

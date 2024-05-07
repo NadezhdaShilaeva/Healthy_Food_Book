@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/main-container/__main-content/__login__form/login__form.css">
+    <link rel="stylesheet" href="/css/main-container/error-message.css">
+    <link rel="stylesheet" href="/css/main-container/preloader.css">
+    <link rel="stylesheet" href="/css/main-container/form__container.css">
+    <title>Вход - HealthyFoodBook</title>
+</head>
+<body class="body">
+        <div class="main-container__login-form login-form">
+            <div class="login-form__column form__container" data-state="">
+                <h1 class="login-form__title">Вход</h1>
+                <form class="form" action="/users/login" method="post">
+                    {{> login_form}}
+                    <p class="form-item__small-text">
+                        Еще нет учетной записи? <a class="login-form__registration">Зарегистрироваться</a>
+                    </p>
+                    <button class="login-form__button button" type="submit">
+                        <p>Войти</p>
+                    </button>
+                    <div class="preloader">
+                        <img class="preloader__image" src="/images/preloader/Spin.gif">
+                    </div>
+                </form>
+                <div class="error-message">
+                    <img src="/images/message-img/error.png">
+                    <p class="message__text"></p>
+                </div>
+            </div>
+
+            <div class="login-form__column register-form form__container" data-state="">
+                <h1 class="login-form__title">Регистрация</h1>
+                <form class="form" action="/users/create-guest" method="post">
+                    {{> register_form}}
+                    <p class="form-item__small-text">
+                        Уже есть учетная запись? <a class="login-form__registration login-form__login">Войти</a>
+                    </p>
+                    <button class="login-form__button button" type="submit">
+                        <p>Зарегистрироваться</p>
+                    </button>
+                    <div class="preloader">
+                        <img class="preloader__image" src="/images/preloader/Spin.gif">
+                    </div>
+                </form>
+                <div class="error-message">
+                    <img src="/images/message-img/error.png">
+                    <p class="message__text"></p>
+                </div>
+            </div>
+        </div>
+    <script src="/js/entrance.js"></script>
+    <script src="/js/login_user.js"></script>
+</body>
+</html>

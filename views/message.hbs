@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/main-container/__main-content/__login__form/login__form.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__message/message-form.css">
+    <title>Сообщение - HealthyFoodBook</title>
+</head>
+<body class="body">
+    <div class="main-container__login-form login-form">
+        <div class="login-form__column">
+            <img class="form-item__img" src="/images/message-img/{{#if success}}success{{else}}error{{/if}}.png">
+            <p class="form-item__text" style="white-space: pre-line">{{message}}</p>
+        </div>
+    </div>
+</body>
+</html>

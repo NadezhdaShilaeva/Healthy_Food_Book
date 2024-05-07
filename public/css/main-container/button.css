@@ -1,0 +1,45 @@
+.button {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #f6f6f6;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(63, 97, 42);
+}
+
+.button:hover {    
+    background-color: rgba(63, 97, 42, 0.7);
+    transition-duration: 0.25s;
+}
+
+.button__pale {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #808080;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f6f6f6;
+}
+
+.button__pale:hover {
+    color: #f6f6f6;
+    background-color: #ccc;
+    transition-duration: 0.25s;
+}
+
+@media (max-width: 770px) {
+    .button, .button__pale {
+        font-size: 16px;
+        line-height: 22px;
+    }    
+}

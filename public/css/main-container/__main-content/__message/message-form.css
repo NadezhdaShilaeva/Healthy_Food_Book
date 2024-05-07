@@ -1,0 +1,20 @@
+.form-item__text {
+    line-height: 40px;
+    text-align: center;
+}
+
+.form-item__img {
+    align-self: center;
+    width: 80px;
+}
+
+@media(max-width: 770px) {
+    .form-item__img {
+        width: 60px;
+    }
+
+    .form-item__text {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}

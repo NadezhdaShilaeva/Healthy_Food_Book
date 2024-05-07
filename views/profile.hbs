@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="/css/main-container/__searching/searching.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__profile/profile.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__profile/chat.css">
+    <link rel="stylesheet" href="/css/main-container/__main-content/__resipes/recipes.css">
+    <title>Профиль - HealthyFoodBook</title>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js" integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs" crossorigin="anonymous"></script>
+</head>
+<body class="body">
+    <h1 class="main-container__title my-recipes">
+        <b>Добро пожаловать, {{user.username}}!</b>
+    </h1>
+    <div class="main-content__profile profile__description">
+        <p id="username" class="description__text">
+            <b class="description__title">Имя пользователя:</b> {{user.username}}
+        </p>
+        <p id="email" class="description__text">
+            <b class="description__title">Email:</b> {{user.email}}
+        </p>
+        {{#if (isModerator user.role)}}
+        <p id="role" class="description__text">
+            <b class="description__title">Ваш статус:</b> {{getRole user.role}}
+        </p>
+        {{/if}}
+    </div>
+    <div class="profile__buttons">
+        <form method="get" action="/profile/edit">
+            <button class="button" type="submit">
+                <p>Редактировать</p>
+            </button>
+        </form>
+        <form method="post" action="/auth/logout">
+            <button class="button" type="submit">
+                <p>Выйти</p>
+            </button>
+        </form>
+        <form method="post" action="/users/delete/{{user.id}}" class="last_button delete__button">
+            <button class="button" type="submit">
+                <p>Удалить аккаунт</p>
+            </button>
+        </form>
+        {{#if (isAdmin user.role)}}
+        <a class="aside__button" href="/registration/moderator">
+            <button class="button" type="submit">
+                <p>Создать модератора</p>
+            </button>
+        </a>
+        {{/if}}
+    </div>
+    <div class="main-container__main-content main-content">
+        <section class="main-content__recipes recipes">
+            {{#if createdRecipes}}
+            <h2 class="recipes__title">
+                Ваши добавленные рецепты:
+            </h2>
+            <div class="recipes__container">
+                {{> created_recipes}}
+            </div>
+            {{else}}        
+            <h2 class="title">
+                Вы еще не делились своими рецептами.. =(
+            </h2>
+            {{/if}}
+        </section>
+        <aside class="main-content__chat chat" data-state="">
+            <h2 class="chat__title main-container__header2">
+                <b>Чат для общения</b>
+            </h2>
+            <form action="" id="search-box-without-burger" class=" chat__form searching__search-box search-box input-box">
+                <input id="message" class="search-box__input" type="text" name="text" placeholder="Введите сообщение.." autocomplete="off">
+                <button id="send" class="search-box__button" type="submit">
+                    <img class="search-box__button-img" src="/images/icons/angle-right-dark.png" alt="Send">
+                </button>
+            </form>
+            <ul class="messages__list">
+            </ul>
+        </aside>
+    </div>
+    <script src="/js/chat.js"></script>
+    <script src="/js/delete_profile.js"></script>
+    <script type="module" src="/js/recipe_favourites.js"></script>
+</body>

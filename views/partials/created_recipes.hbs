@@ -1,0 +1,36 @@
+{{#each createdRecipes}}
+<div class="recipes__recipe recipe">
+    <a class="recipe__link" href="/recipes/recipe/{{id}}">
+        <img class="recipe__img" src="/{{image.path}}" alt="recipe_img">
+    </a>
+    <div class="recipe__description">
+        <a class="recipe__name" href="/recipes/recipe/{{id}}">
+            <h2 class="main-container__header2">
+                {{name}}
+            </h2>
+        </a>
+        <div class="recipe__category recipe-addition">
+            <p class="recipe-addition__text state-type">{{#if (isApproved state)}}Утвержден{{else}}На модерации{{/if}}</p>
+        </div>
+        <div class="recipe__category recipe-addition">
+            <img class="recipe-addition__icon" src="/images/icons/category.png" alt="category">
+            <p class="recipe-addition__text">{{getCategory category}}</p>
+        </div>
+        <div class="recipe__time recipe-addition">
+            <img class="recipe-addition__icon" src="/images/icons/clock.png" alt="time">
+            <p class="recipe-addition__text">
+                {{#if hours}}{{hours}} ч {{/if}}
+                {{#if minutes}}{{minutes}} мин{{/if}}
+            </p>
+        </div>
+        <div class="recipe__favourite recipe-addition">
+            {{#if isLiked}}
+            <img class="recipe-addition__icon" src="/images/icons/heart_full.png" alt="likes">
+            {{else}}
+            <img class="recipe-addition__icon" src="/images/icons/heart.png" alt="likes">
+            {{/if}}
+            <p class="recipe-addition__text">{{likes}}</p>
+        </div>
+    </div>
+</div>
+{{/each}}
